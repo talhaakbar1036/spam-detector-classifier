@@ -1,7 +1,7 @@
 SpamGuard — Message Filtering System: Comprehensive Project Report
 1. Executive Summary
 
-SpamGuard is a machine learning-based message classification system designed to distinguish between spam and ham (legitimate) text messages. The project implements a full pipeline from data acquisition and preprocessing to model training, evaluation, and visualization. Using a publicly available SMS spam dataset from Kaggle, the system applies natural language processing (NLP) techniques and multiple classification algorithms to achieve high accuracy in spam detection. The project is implemented in Python with a production-ready Flask web application frontend, leveraging libraries such as scikit-learn, NLTK, pandas, matplotlib, and Flask for end-to-end analysis and deployment.
+SpamGuard is a machine learning-based message classification system designed to distinguish between spam and ham (legitimate) text messages. The project implements a full pipeline from data acquisition and preprocessing to model training. Using a publicly available SMS spam dataset from Kaggle, the system applies natural language processing (NLP) techniques and multiple classification algorithms to achieve high accuracy in spam detection. The project is implemented in Python with a production-ready.
 2. Dataset Overview
 
     Source: Kaggle — SMS Spam Collection Dataset
@@ -31,8 +31,6 @@ SpamGuard is a machine learning-based message classification system designed to 
     Implement NLP preprocessing: tokenization, stopword removal, stemming.
 
     Perform exploratory data analysis (EDA) and visualization.
-
-    Deploy a reproducible pipeline for future extensions.
 
 4. Methodology
 4.1 Data Preprocessing
@@ -86,6 +84,7 @@ SpamGuard is a machine learning-based message classification system designed to 
         Classification Report
 
 5. Exploratory Data Analysis (EDA)
+
 5.1 Class Distribution
 
     Dataset is imbalanced (12.43% spam).
@@ -107,10 +106,10 @@ SpamGuard is a machine learning-based message classification system designed to 
     Spam Word Cloud: Common words: free, txt, win, claim, prize, urgent, mobile, cash
 
 6. Model Performance Comparison
-Model	Accuracy	Precision (Spam)	Recall (Spam)	F1-Score (Spam)
-Multinomial Naïve Bayes	97.2%	0.95	0.89	0.92
-Logistic Regression	98.1%	0.96	0.93	0.94
-Support Vector Machine	98.3%	0.97	0.94	0.95
+Model	                    Accuracy    	Precision (Spam)	Recall (Spam)	F1-Score (Spam)
+Multinomial Naïve Bayes     	97.2%	        0.95	        0.89	        0.92
+Logistic Regression	            98.1%	        0.96	        0.93	        0.94
+Support Vector Machine	        98.3%	        0.97	        0.94	        0.95
 
 Key Insights:
 
@@ -121,26 +120,23 @@ Key Insights:
     Naïve Bayes served as a good baseline but lagged slightly in recall.
     ## Model Accuracy
     ![Model Accuracy](./images/https://github.com/talhaakbar1036-ui/spam-detector-classifier/blob/main/images/accuracy.png)
+    
 
     ## Confusion Matrix
     ![Confusion Matrix](./images/https://github.com/talhaakbar1036-ui/spam-detector-classifier/blob/main/images/confusion matrix.png)
 
 
 7. Key Challenges & Solutions
+
 Challenge	Solution
 Class Imbalance	Used stratified sampling in train-test split.
 Text Noise (special chars, digits)	Applied regex-based cleaning and stemming.
 High Dimensionality	Limited TF-IDF features to 5000.
 Model Comparison	Implemented multiple classifiers and compared metrics.
+
 8. Tools & Technologies Used
 
     Python 3.x
-
-    Backend & Framework:
-
-        Flask 2.3.3 (web framework)
-
-        Gunicorn 20.1.0 (WSGI server)
 
     Machine Learning & Data Processing:
 
@@ -156,27 +152,11 @@ Model Comparison	Implemented multiple classifiers and compared metrics.
 
         matplotlib, seaborn, wordcloud (visualization)
 
-    Frontend:
-
-        HTML5, CSS3, JavaScript (responsive web interface)
-
-        Font Awesome icons (UI elements)
-
-    Environment: Jupyter Notebook for analysis / Flask for deployment
+    Environment: Jupyter Notebook for analysis
 
     Version Control: Git (optional but recommended)
 
-eatures
-
-### Current Implementation
-- ✅ Web-based user interface for spam detection
-- ✅ REST API endpoint for programmatic access
-- ✅ Pre-trained Naïve Bayes model with 97.2% accuracy
-- ✅ Real-time predictions with confidence scores
-- ✅ Text preprocessing pipeline (stemming, stopword removal, etc.)
-- ✅ Probability distribution visualization
-- ✅ Character and word count tracking
-- ✅ Mobile-responsive design
+Features:
 
 ### Future Enhancements
 
@@ -200,79 +180,10 @@ eatures
 
 10. Conclusion
 
-The SpamGuard project successfully demonstrates a complete NLP-based classification pipeline with production deployment. The system achieves 97.2% accuracy using a Naïve Bayes classifier, effectively distinguishing spam from legitimate messages. Beyond the analysis phase, the project has been deployed as a fully functional Flask web application with an intuitive user interface and REST API endpoints for seamless integration. The code is modular, well-documented, and ready for extension or deployment in real-world scenarios.
-11. Repository Structure
-text
-### Option 1: Web Application (Recommended)
+The SpamGuard project successfully demonstrates a complete NLP-based classification pipeline with production deployment. The system achieves 97.2% accuracy using a Naïve Bayes classifier, effectively distinguishing spam from legitimate messages. 
 
-1. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
 
-2. **Run the Flask application:**
-   ```bash
-   python app.py
-   ```
-
-3. **Access the web interface:**
-   - Open your browser and navigate to `http://localhost:5000`
-   - Enter a message to get instant spam prediction
-   - View confidence scores and probability distribution
-
-### Option 2: Jupyter Notebook (Analysis & Training)
-
-1. **Install dependencies:**
-   ```bash
-   pip install pandas numpy matplotlib seaborn wordcloud nltk scikit-learn jupyter
-   ```
-
-2. **Download NLTK data:**
-   ```python
-   import nltk
-   nltk.download('punkt')
-   nltk.download('stopwords')
-   nltk.download('punkt_tab')
-   ```
-
-3. **Run the Jupyter notebook:**
-   ```bash
-   jupyter notebook SpamGuard_(3).ipynb
-   ```
-
-### Option 3: API Usage (JSON)
-
-Send a POST request to the API endpoint:
-
-```bash
-curl -X POST http://localhost:5000/api/predict \
-  -H "Content-Type: application/json" \
-  -d '{"message": "Congratulations! You won 1 million!"}'
-```
-
-**Response:**
-```json
-{
-  "message": "Congratulations! You won 1 million!",
-  "prediction": "spam",
-  "confidence": 98.5,
-  "spam_probability": 98.5,
-  "ham_probability": 1.5,
-  "status": "success"
-}
-```
-
-## Feedback
-
-This project is still open to improvement.
-Suggestions and constructive feedback are very welcome.  
-Feel free to open an issue or submit a pull request.
-
-nltk.download('stopwords')
-
-    Run the Jupyter notebook SpamGuard_(3).ipynb.
-
-## 13. Feedback & Contributing
+11. Feedback & Contributing
 
 This project is still open to improvement.
 Suggestions and constructive feedback are very welcome.  
